@@ -1,0 +1,15 @@
+- hosts: k8sMaster
+  remote_user: root
+  become: yes
+  become_method: sudo
+  become_user: root
+  tasks:
+    - include: master_deploy.yml
+
+- hosts: k8sWorker
+  remote_user: root
+  become: yes
+  become_method: sudo
+  become_user: root
+  tasks:
+    - include: worker_deploy.yml
